@@ -4,8 +4,8 @@ import java.lang.Thread;
 public class AI extends calculator{
   private String response;
 private String[] functions = new String[]{"Translate", "Calculate", "Tell you the current date and time", "Set a timer", "Give recomendations"};
-  public AI(String r, String l, int n, String a){
-    super(n, l,a);
+  public AI(String r, String l, int n, String a, int k){
+    super(n, l,a, k);
     response=r;
   }
   public void Date(){

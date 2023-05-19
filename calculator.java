@@ -1,25 +1,11 @@
 public class calculator extends translator{
 private int num1;
-  private double variableX;
-  private double variableY;
-  public calculator(int n, String l, String a){
-    super(l,a);
+
+  public calculator(int n, String l, String a, int k){
+    super(l,a, k);
     num1=n;
   }
-  public double getX(){
-    return variableX;
-  }
-  public void setX(double x){
-    System.out.println(variableX);
-    variableX=x;
-    System.out.println(variableX);
-  }
-  public double getY(){
-    return variableY;
-  }
-  public void setY(double y){
-    variableY=y;
-  }
+  
   public void adding(double num1, double num2){
     System.out.println((num1+num2)+"\nAnything else you want me to do?");
   }
@@ -40,7 +26,7 @@ private int num1;
     System.out.println(Math.pow(num, ex)+"\nAnything else you want me to do?");
   }
 
-  public void root(double num, int root){
+  public void root(double num, double root){
     System.out.println(Math.pow(num, 1/root)+"\nAnything else you want me to do?");
   }
 

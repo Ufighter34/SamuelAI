@@ -1,14 +1,12 @@
-//fix translating sentence method
-
 import java.util.Scanner;
 class Main {
   public static void main(String[] args) throws InterruptedException{
     Scanner input = new Scanner(System.in);
-    System.out.println("Hello. My name is Samuel. How may I be of service to you today?");
+    System.out.println("\u001b[32;1mHello. My name is Samuel. How may I be of service to you today?");
     String response="";
     while(!(response.toUpperCase().indexOf("TURN OFF")!=-1)){
     response = input.nextLine(); 
-    AI Samuel = new AI(response, "Spanish", 4, "Health", 1);
+    AI Samuel = new AI(response, "Spanish", 4, "Health");
       //translator
     if(response.toUpperCase().indexOf("TRANSLATE")!=-1){
       System.out.println("What would you like me to translate?");
@@ -24,6 +22,17 @@ class Main {
       }
       System.out.println(Samuel.translate(language, response, choice));
     }
+
+      //displaying functions/background
+      else if(response.toUpperCase().indexOf("WHAT CAN YOU RECOMMEND")!=-1){
+          Samuel.displayRecs();
+        }
+      else if(response.toUpperCase().indexOf("DISPLAY YOUR OPERATIONS")!=-1||response.toUpperCase().indexOf("WHAT CAN YOU CALCULATE")!=-1){
+        Samuel.displayOperations();
+      }
+      else if(response.toUpperCase().indexOf("YOU DO")!=-1){
+        Samuel.background();
+      }
       //calculator
       //add
       else if(response.toUpperCase().indexOf("MATH")!=-1||response.toUpperCase().indexOf("CALCULATE")!=-1){
@@ -80,19 +89,58 @@ class Main {
 
           //modulus
         else if(response.toUpperCase().indexOf("MODULUS")!=-1){
-          
           System.out.println("What is the first number?");
           double num1=input.nextDouble();
           System.out.println("What is the second number?");
           int num2 = input.nextInt();
           Samuel.mod(num1, num2);
         }
+//finding slope
+        else if(response.toUpperCase().indexOf("SLOPE")!=-1){
+          System.out.println("Input the first y and x values. First y, and then x:");
+          double y2 = input.nextDouble();
+          double x2 = input.nextDouble();
+          System.out.println("Input the second y and x values. Same order as before: ");
+          double y1 = input.nextDouble();
+          double x1 = input.nextDouble();
+           Samuel.slope(y2, x2, y1, x1);
+        }
+
+          //getting reciprocal
+        else if(response.toUpperCase().indexOf("RECIPROCAL")!=-1){
+          System.out.println("What do you want to find the reciprocal of?");
+          double num = input.nextDouble();
+          System.out.println("The reciprocal of "+num+" is "+Samuel.reciprocal(num)+"\n Anything else you want me to do?");
+        }
+
+        //factorial
+        else if(response.toUpperCase().indexOf("FACTORIAL")!=-1){
+        System.out.println("What would you like the factorial of?");
+        double number = input.nextDouble();
+        System.out.println("The factorial of "+number+" is "+Samuel.factorial(number));
+        }
+
+        //combined gas law
+        else if(response.toUpperCase().indexOf("COMBINED GAS LAW")!=-1){
+        Samuel.combinedGasLaw();
+        }
+          //ideal gas law
+        else if(response.toUpperCase().indexOf("IDEAL GAS LAW")!=-1){
+          Samuel.idealGasLaw();
+        }
+
+        //average
+        else if(response.toUpperCase().indexOf("AVERAGE")!=-1){
+        System.out.println("How many numbers are there?");
+        int num = input.nextInt();;
+        Samuel.average(num);
+        }
       }
         //timer
       else if(response.toUpperCase().indexOf("TIMER")!=-1){
       System.out.println("How long would you like the timer set for?");
       int num = input.nextInt();
-        System.out.println("Is that in minutes or hours?");
+        System.out.println("Is that in minutes, seconds, or hours?");
         String choice = input.next();
         if(choice.equals("minutes")){
           Samuel.Timer(num*60);
@@ -105,21 +153,23 @@ class Main {
         }
     }
         //getting date/time
-      else if(response.toUpperCase().indexOf("TIME")!=-1||response.toUpperCase().indexOf("DATE")!=-1){
+      else if(response.toUpperCase().indexOf("DATE")!=-1){
         Samuel.Date();
       }
-      //background info
-      else if(response.toUpperCase().indexOf("YOU DO")!=-1){
-        Samuel.background();
-      }
-
-      //recommdations
-        else if(response.toUpperCase().indexOf("WHAT CAN YOU RECOMMEND")!=-1){
-          Samuel.displayRecs();
-        }
+      //recommendations
+        
       else if(response.toUpperCase().indexOf("RECOMMEND")!=-1){
         System.out.println(Samuel.recommendations(response));
       }
+
+        //flipping coin
+      else if(response.toUpperCase().indexOf("COIN FLIP")!=-1||response.toUpperCase().indexOf("FLIP A COIN")!=-1){
+       Samuel.flipCoin();
+      }
+      else if(response.toUpperCase().indexOf("DICE ROLL")!=-1){
+        Samuel.diceRoll();
+      }
     }
+    System.out.println("System shutting down...");
   }
 }

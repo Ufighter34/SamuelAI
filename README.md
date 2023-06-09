@@ -1,2 +1,2 @@
 # SamuelAI
-For AP CSA final project
+This program is designed to replicate the behavior of an AI, such as google home or alexa. The downside to this version is that it is unable to connect to the internet. So instead, some information the user can recieve from the program is chosen randomly from several arrays, as a way of replicating an AI finding different information. It can also translate some words and sentences from English to Spanish, French, and Italian, as well as do some calcuations. There are other commands this program can do, but they are more random commands I felt any AI can do. All of this was made with Java programming with the use of inheritance. 
